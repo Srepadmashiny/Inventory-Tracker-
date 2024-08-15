@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-import { getFirestore } from 'firebase/firestore'; // Corrected import path
+import { getAnalytics, isSupported } from 'firebase/analytics';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage'; // Import Firebase Storage
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,7 +17,19 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+// Initialize Firebase Analytics only if supported
+let analytics;
+isSupported().then((supported) => {
+  if (supported) {
+    analytics = getAnalytics(app);
+  }
+});
+
+// Initialize Firebase Storage
+const storage = getStorage(app);
+
+// Initialize Firestore
 const firestore = getFirestore(app);
 
-export { firestore };
+export { firestore, storage }; // Export Firestore and Storage

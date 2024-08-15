@@ -1,0 +1,19 @@
+/* styles.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f9fc;
+  }
+  
+  input[type="file"] {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .MuiCard-root {
+    border-radius: 12px;
+  }
+  
+  .MuiButton-root {
+    border-radius: 8px;
+  }
+  
