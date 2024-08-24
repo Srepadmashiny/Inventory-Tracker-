@@ -1,0 +1,1 @@
+print("Inventory Tracker Project")
